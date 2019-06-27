@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:agenda_contatos/helpers/contact_helper.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'contact_page.dart';
 
@@ -57,8 +58,8 @@ class _HomePageState extends State<HomePage> {
           child: Row(
             children: <Widget>[
               Container(
-                width: 80.0,
-                height: 80.0,
+                width: 60.0,
+                height: 60.0,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
@@ -74,13 +75,13 @@ class _HomePageState extends State<HomePage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(contacts[index].name ?? "",
-                      style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)
+                      style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold)
                     ),
                     Text(contacts[index].email ?? "",
-                        style: TextStyle(fontSize: 17.0)
+                        style: TextStyle(fontSize: 13.0)
                     ),
                     Text(contacts[index].phone ?? "",
-                        style: TextStyle(fontSize: 17.0)
+                        style: TextStyle(fontSize: 13.0)
                     )
                   ],
                 ),
@@ -115,7 +116,8 @@ class _HomePageState extends State<HomePage> {
                             style: TextStyle(color: Colors.red, fontSize: 20.0)
                         ),
                         onPressed: () {
-
+                          launch("tel:${contacts[index].phone}");
+                          Navigator.pop(context);
                         },
                       ),
                     ),
