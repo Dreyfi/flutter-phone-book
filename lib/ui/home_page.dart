@@ -79,7 +79,7 @@ class _HomePageState extends State<HomePage> {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
-                    fit: BoxFit.fitWidth,
+                    fit: BoxFit.cover,
                     image: contacts[index].img != null ?
                       FileImage(File(contacts[index].img)) :
                         AssetImage("images/avatar.png")
